@@ -1,0 +1,38 @@
+<nav th:fragment="nav-bar-dark" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Personas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/persona/list}">Lista de personas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/ciudad/list}">Lista de ciudades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/ciudad/form}">Crear ciudad</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="!(isAuthenticated())" class="nav-link" th:href="@{/persona/form}">Registrar</a>
+                </li>
+            </ul>
+        </div>
+
+        <a  sec:authorize="!(isAuthenticated())"  th:href="@{/login}">Login</a>
+        <a  sec:authorize="(isAuthenticated())"  th:href="@{/logout}">Salir</a>
+
+    </div>
+
+</nav>
+
+<nav th:fragment="nav-bar-light" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Personas</a>
+        <a  sec:authorize="!(isAuthenticated()_" class="navbar-brand" th:href="@{/login}">Login</a>
+        <a  sec:authorize="(isAuthenticated()_" class="navbar-brand" th:href="@{/logout}">LogOut</a>
+    </div>
+</nav>

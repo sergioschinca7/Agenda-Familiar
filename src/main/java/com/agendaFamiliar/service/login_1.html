@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+
+<!-- <head th:replace="/fragments/head :: head"></head> -->
+<body>
+    <!-- <nav th:replace="/fragments/nav-bar :: nav-bar-dark"> </nav> -->
+
+    <div class="container">
+        <div class="card mt-5">
+
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <span>La sesion se finalizo con exito(Logout)</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="card-header d-flex">
+                <h1>Login</h1>
+
+            </div>
+            <div class="card-body">
+
+                <form th:action="@{/logincheck}" method="POST" class="col-6 mx-auto">
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre Usuario</label>
+                        <input type="text" class="form-control" name="username" placeholder="Nino">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+
+
+                    <button type="submit" class="btn-dark px-5 py-2 ms-auto">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
