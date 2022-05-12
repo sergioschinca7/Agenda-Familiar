@@ -25,24 +25,26 @@
         <div class="col align-self-center">
           <h1>REGISTRO HIJOS</h1>
 
-          <form th:action="@{/hijos/guardar}" method="post" th:object="${hijo}" 
-                            enctype="multipart/form-data" data-sb-form-api-token="API_TOKEN">
-            
+          <form th:action="@{/hijos/guardar}" method="post" th:object="${hijo}"
+                                  enctype="multipart/form-data" data-sb-form-api-token="API_TOKEN">
+
             <div class="container  d-flex justify-content-center">
               <div class="col-sm-4 align-items-start">
 
-                <!-- <input hidden th:field="${usuario.id}"> -->
 
-               <!-- <br>
-                 <div class="mb-3">
-                  <label for="formFile" class="form-label">Ingrese la foto de perfil</label>
-                  <input class="form-control" type="file" id="formFile" th:field="*{foto}" th:alt="@{/uploads/ } + perfilSinFoto.jpeg">
-                </div> -->
+                <!-- <input type="hidden" th:field="*{usuario.id}" th:value="${ususario.id}"> -->
 
                 <br>
                 <div class="mb-3">
+                  <label for="formFile" class="form-label">Ingrese la foto de perfil</label>
+                  <input class="form-control" type="file" id="formFile" name="files"
+                                              th:alt="@{/uploads/ } + perfilSinFoto.jpeg">
+                </div>
+
+                <br>
+                <div class="mb-3"> 
                   <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre"
-                    data-sb-validations="required" name="nombre" th:field="*{nombre}">
+                    data-sb-validations="required" name="nombre" th:field="*{nombre}">Nombre
                   <div class="invalid-feedback" data-sb-feedback="message:required">Requiere llenar campo</div>
                 </div>
 
@@ -55,8 +57,8 @@
 
                 <br>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="dni" name="dni" data-sb-validations="required" 
-                  th:field="*{dni}" />
+                  <input type="text" class="form-control" placeholder="dni" name="dni" data-sb-validations="required"
+                    th:field="*{dni}" />
                   <div class="invalid-feedback" data-sb-feedback="message:required">Requiere llenar campo</div>
                 </div>
 
@@ -64,14 +66,14 @@
                 <div class="mb-3">
                   <label for="formFile" class="form-label">Fecha de Nacimiento: </label>
                   <input type="date" class="form-control" placeholder="Fecha de nacimiento" name="fechNacimiento"
-                    data-sb-validations="required" th:field="*{fechNacimiento}"/>
+                    data-sb-validations="required" th:field="*{fechNacimiento}" />
                   <div class="invalid-feedback" data-sb-feedback="message:required">Requiere llenar campo</div>
                 </div>
 
                 <br>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="grupoSanguineo" id="grupoSanguineo" name="grupoSanguineo" 
-                  th:field="*{grupoSanguineo}">
+                  <input type="text" class="form-control" placeholder="grupoSanguineo" id="grupoSanguineo"
+                    name="grupoSanguineo" th:field="*{grupoSanguineo}">
                 </div>
 
               </div>

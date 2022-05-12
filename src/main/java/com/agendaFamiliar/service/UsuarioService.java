@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +41,9 @@ public class UsuarioService {
     }
 
     @Transactional
-    public Usuario cargarFoto(String id, Usuario usuario, @RequestParam(name = "file", required = false) MultipartFile foto) {
+    public Usuario cargarFoto(Usuario usuario, @RequestParam(name = "file", required = false) MultipartFile foto) {
         
-        usuario = buscar(id);
+//        usuario = buscar(id);
         System.out.println("usuario : " + usuario);
         if (!foto.isEmpty()) { //si la foto no viene vacia q la guarde
             String ruta = "C://Agenda//uploads//";
@@ -78,7 +77,7 @@ public class UsuarioService {
                 System.err.println(ex);
             }
 
-            guardar(usuario);
+//            guardar(usuario);
           
             System.out.println("\n usuario guardado con foto : " + usuario);
 

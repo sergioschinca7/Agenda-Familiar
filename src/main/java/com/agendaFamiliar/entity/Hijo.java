@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,6 +38,8 @@ public class Hijo implements Serializable{
     private Date fechNacimiento;
     
     private String grupoSanguineo;
+    
+    private ArrayList<String> fotos;
     
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_usuario")

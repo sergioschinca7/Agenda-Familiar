@@ -26,21 +26,46 @@
           <h1>PANEL DE CONTROL</h1>
 
           <div class="container  d-flex justify-content-center">
-            <div class="col-sm-4 align-items-start" th:object="${usuario}">
+            <div class="col-sm-4 align-items-start">
 
-              
+              <div th:if="${!hijos.isEmpty}">
+
+                <table class="table table-dark table-hover">
+
+                  <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Grupo Sanguineo</th>
+                      <th scope="col">Foto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="listaHijos: ${hijos}">
+                      <p>
+                          <td th:text="${listaHijos.id}"></td>
+                          <td th:text="${listaHijos.nombre}"></td>
+                          <td th:text="${listaHijos.apellido}"></td>
+                          <td th:text="${listaHijos.grupoSanguineo}"></td>
+                          <td th:text="${listaHijos.foto}"></td>
+                      </p>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div th:if="${hijos.isEmpty}"> La lista es Vacia </div>
+
+
+
+              <!-- <a class="btn btn-info"
+                                    th:href="@{/alumno/guardarProfesor/} + ${profesor.id} + '/'+ ${alumno.id} -->
 
               <br>
               <div class="mb-3">
                 <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/usuario/cargar}">
                   Cargar Padres</a>
-              </div>
-
-
-              <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/usuario/buscar}">
-                  Buscar Padres</a>
               </div>
 
               <br>

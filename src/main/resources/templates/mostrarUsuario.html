@@ -26,52 +26,38 @@
           <h1>PANEL DE CONTROL</h1>
 
           <div class="container  d-flex justify-content-center">
-            <div class="col-sm-4 align-items-start" th:object="${usuario}">
-
-              
+            <div class="col-sm-4 align-items-start">
 
               <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/usuario/cargar}">
-                  Cargar Padres</a>
-              </div>
 
-
-              <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/usuario/buscar}">
-                  Buscar Padres</a>
-              </div>
+              <img img th:if="${usuario.foto != null}" th:src="@{'/uploads/' + ${usuario.foto}}"
+                th:alt="${usuario.foto}" style="max-width:10%;max-height:10%;" class="mx-auto rounded-circle"
+                id="imgPerfil" />
 
               <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/hijos/cargar}">
-                  Cargar Hijos</a>
-              </div>
+              <p>Nombre :
+              <h3 class="list-group-item bg-transparent text-dark" th:text="${usuario.nombre}">Nombre</h3>
+              </p>
 
               <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/hijos/listar}">
-                  Listar Hijos</a>
-              </div>
+              <p>Apellido :
+              <h3 class="list-group-item bg-transparent text-dark" th:text="${usuario.apellido}"></h3>
+              </p>
 
               <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">
-                  Mi perfil</a>
-              </div>
+              <p>Dni :
+              <h3 class="list-group-item bg-transparent text-dark" th:text="${usuario.dni}"></h3>
+              </p>
 
               <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">
-                  Registrar Nueva Actividad</a>
-              </div>
+              <p>Email :
+              <h3 class="list-group-item bg-transparent text-dark" th:text="${usuario.email}"></h3>
+              </p>
 
-              <br>
-              <div class="mb-3">
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">
-                  Registrar Nueva Historia Clínica</a>
-              </div>
+
+              <!-- <a class="btn btn-info"
+                                    th:href="@{/alumno/guardarProfesor/} + ${profesor.id} + '/'+ ${alumno.id} -->
+
 
             </div>
           </div>
@@ -81,9 +67,6 @@
       </div>
     </div>
   </header>
-
-
-
 
 
   <!-- Bootstrap core JS-->
