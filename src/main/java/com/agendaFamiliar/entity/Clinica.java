@@ -33,6 +33,7 @@ public class Clinica implements Serializable{
     private String archivo;
     
     private String observaciones;
+    private Integer estudios; 
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_historiaClinica")
